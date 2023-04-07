@@ -14,7 +14,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
+      const res = await axios.get(`http://localhost:8000/api/users?username=${username}`);
       setUser(res.data);
     };
     fetchUser();
@@ -33,7 +33,7 @@ export default function Profile() {
                 src={
                   user.coverPicture
                     ? PF + user.coverPicture
-                    : PF + "person/noCover.png"
+                    : PF + "noCover.png"
                 }
                 alt=""
               />
@@ -42,7 +42,7 @@ export default function Profile() {
                 src={
                   user.profilePicture
                     ? PF + user.profilePicture
-                    : PF + "person/noAvatar.png"
+                    : PF + "noAvatar.png"
                 }
                 alt=""
               />

@@ -19,7 +19,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
+      const res = await axios.get(`http://localhost:8000/api/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -43,7 +43,7 @@ export default function Post({ post }) {
                 src={
                   user.profilePicture
                     ? PF + user.profilePicture
-                    : PF + "person/noAvatar.png"
+                    : PF + "noAvatar.png"
                 }
                 alt=""
               />

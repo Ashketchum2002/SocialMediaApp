@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useRef } from "react";
 import "./register.css";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const username = useRef();
   const email = useRef();
   const password = useRef();
   const passwordAgain = useRef();
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -21,8 +21,8 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        await axios.post("/auth/register", user);
-        history.push("/login");
+        await axios.post("http://localhost:8000/api/auth/register", user);
+        history("/login");
       } catch (err) {
         console.log(err);
       }
